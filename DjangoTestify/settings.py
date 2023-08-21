@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
+    'webpack_boilerplate'
 ]
 
 MIDDLEWARE = [
@@ -115,10 +117,31 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+WEBPACK_LOADER = {
+    'MANIFEST_FILE': os.path.join(BASE_DIR, 'frontend/build/manifest.json')
+}
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/build')]
+
+# AWS Configuration
+AWS_ACCESS_KEY_ID = 'AKIAQGXZWIGQUPHSMR46'
+AWS_SECRET_ACCESS_KEY = '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'
+
+# AWS S Configuration
+AWS_STORAGE_BUCKET_NAME = 'mysecretebucket'
+
+# Static Files Storages
+AWS_STATIC_LOCATION = 'static'
+STATICFILES_STORAGE = 'DjangoTestify.storages_backends.StaticStorage'
+
+# Media Files Storage
+AWS_PUBLIC_MEDIA_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'DjangoTestify.storages_backends.PublicMediaStorage'
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com'%AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
