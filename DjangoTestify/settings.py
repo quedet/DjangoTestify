@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'storages',
-    'webpack_boilerplate'
+    'webpack_boilerplate',
     'crispy_forms',
-    'crispy_tailwind'
+    'crispy_tailwind',
+    'apps.todos.apps.TodosConfig',
 ]
 
 MIDDLEWARE = [
