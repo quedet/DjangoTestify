@@ -9,24 +9,29 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-import os.path
+import os
 from pathlib import Path
+import environ
+import dj_database_url
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+4t2(zfia92@8(f^w4xxtdkd@*thqlcid7ky+08hm__=fd4w4w'
+SECRET_KEY = env('SECRET_KEY') # env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+# CSRF_TRUSTED_ORIGINS = ['']
 
 # Application definition
 
@@ -75,17 +80,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'DjangoTestify.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -104,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -133,21 +132,21 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/build')]
 
 # AWS Configuration
-AWS_ACCESS_KEY_ID = 'AKIAQGXZWIGQUPHSMR46'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 # AWS S Configuration
-AWS_STORAGE_BUCKET_NAME = 'mysecretebucket'
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 
 # Static Files Storages
-AWS_STATIC_LOCATION = 'static'
+AWS_STATIC_LOCATION = env('AWS_STATIC_LOCATION')
 STATICFILES_STORAGE = 'DjangoTestify.storages_backends.StaticStorage'
 
 # Media Files Storage
-AWS_PUBLIC_MEDIA_LOCATION = 'media'
+AWS_PUBLIC_MEDIA_LOCATION = env('AWS_PUBLIC_MEDIA_LOCATION')
 DEFAULT_FILE_STORAGE = 'DjangoTestify.storages_backends.PublicMediaStorage'
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com'%AWS_STORAGE_BUCKET_NAME
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_FILE_OVERWRITE = False
 
 # Default primary key field type
