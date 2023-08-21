@@ -124,13 +124,8 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# if DEBUG:
-#     WEBPACK_LOADER = {
-#         'MANIFEST_FILE': os.path.join(BASE_DIR, 'frontend/build/manifest.json')
-#     }
-# else:
 WEBPACK_LOADER = {
-    'MANIFEST_FILE': 'https://mysecretebucket.s3.eu-north-1.amazonaws.com/static/manifest.json'
+    'MANIFEST_FILE': os.path.join(BASE_DIR, 'frontend/build/manifest.json')
 }
 
 STATIC_URL = 'static/'
