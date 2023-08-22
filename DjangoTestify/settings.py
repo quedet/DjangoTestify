@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'webpack_boilerplate',
     'crispy_forms',
     'crispy_tailwind',
+    'turbo_response',
     'apps.todos.apps.TodosConfig',
 ]
 
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'turbo_response.middleware.TurboMiddleware',
 ]
 
 ROOT_URLCONF = 'DjangoTestify.urls'

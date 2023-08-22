@@ -1,0 +1,11 @@
+<div id="todo-{{ todo.id }}-item" class="bg-gray-100 px-4 py-3 flex items-center gap-4">
+    <form method="post" action="{% url 'todos:complete' todo.id %}" data-controller="autosave" data-action="turbo:before-fetch-request->autosave#fetchRequest">
+        {% csrf_token %}
+        <input type="checkbox" name="completed" data-autosave-target="input" {% if todo.completed %}checked {% endif %} />
+    </form>
+    <turbo-frame id="todo-{{ todo.id }}-content" class="flex flex-col gap-2 w-full">
+        <p class="mb-1">{{ todo.content }}</p>
+        <p class="text-sm text-gray-700">{{ todo.created|date:"d, M Y" }}</p>
+        <p><a href="{% url 'todos:update' todo.id %}">Edit</a> </p>
+    </turbo-frame>
+</div>

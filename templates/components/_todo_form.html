@@ -1,0 +1,16 @@
+{% load crispy_forms_tags %}
+
+<turbo-frame id="{{ request.turbo.frame }}">
+    <form method="post" action="{% url 'todos:update' todo.id %}">
+        {% csrf_token %}
+        <div class="flex flex-col">
+            {{ form|crispy }}
+            <div class="flex items-center gap-4">
+                <button type="submit" class="flex-[6] bg-sky-950 text-white py-3.5 rounded-lg">Update</button>
+                <button type="button" class="flex-[6] bg-red-500 text-white py-3.5 rounded-lg">
+                    <a href="{% url 'todos:index' %}">Cancel</a>
+                </button>
+            </div>
+        </div>
+    </form>
+</turbo-frame>

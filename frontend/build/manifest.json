@@ -1,22 +1,26 @@
 {
-  "app.css": "/static/css/app.9eb3b42bf884e4ed2b50.css",
-  "app.js": "/static/js/app.a0bd17f6.js",
-  "css/app.9eb3b42bf884e4ed2b50.css.map": "/static/css/app.9eb3b42bf884e4ed2b50.css.map",
+  "app.css": "/static/css/app.7d2c9249c7f3735d4679.css",
+  "app.js": "/static/js/app.58565e58.js",
+  "css/app.7d2c9249c7f3735d4679.css.map": "/static/css/app.7d2c9249c7f3735d4679.css.map",
   "entrypoints": {
     "app": {
       "assets": {
         "js": [
-          "/static/js/runtime.c4a17b0f.js",
-          "/static/js/app.a0bd17f6.js"
+          "/static/js/runtime.2ea6be94.js",
+          "/static/js/98.3eda4840.js",
+          "/static/js/app.58565e58.js"
         ],
         "css": [
-          "/static/css/app.9eb3b42bf884e4ed2b50.css"
+          "/static/css/app.7d2c9249c7f3735d4679.css"
         ]
       }
     }
   },
-  "js/runtime.c4a17b0f.js.map": "/static/js/runtime.c4a17b0f.js.map",
-  "runtime.js": "/static/js/runtime.c4a17b0f.js",
+  "js/98.3eda4840.js": "/static/js/98.3eda4840.js",
+  "js/98.3eda4840.js.map": "/static/js/98.3eda4840.js.map",
+  "js/app.58565e58.js.map": "/static/js/app.58565e58.js.map",
+  "js/runtime.2ea6be94.js.map": "/static/js/runtime.2ea6be94.js.map",
+  "runtime.js": "/static/js/runtime.2ea6be94.js",
   "vendors/.gitkeep": "/static/vendors/.gitkeep",
   "vendors/images/.gitkeep": "/static/vendors/images/.gitkeep",
   "vendors/images/sample.jpg": "/static/vendors/images/sample.jpg",
